@@ -6,9 +6,8 @@ import (
 	"os"
 	"log"
 )
-
 func String_connect() string{
-	err := godotenv.Load()
+	err := godotenv.Load()//get enviroment variable
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
