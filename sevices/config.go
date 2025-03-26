@@ -1,4 +1,4 @@
-package sevice
+package sevices
 
 import (
 	"github.com/joho/godotenv"
