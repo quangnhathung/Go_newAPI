@@ -4,10 +4,12 @@ import (
 	"gorm.io/gorm"
 	"go_API/internal/model"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 func Root(db *gorm.DB){
 	app := fiber.New()
+	app.Use(cors.New())//accept request from react 
 	defer app.Listen(":3000")
 
 	app.Get("/api/v1/vocabs", func(c *fiber.Ctx) error {
