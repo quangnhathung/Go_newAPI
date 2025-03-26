@@ -9,6 +9,7 @@ import (
 )
 
 func main(){
+	//connect to postgres database
 	db,_:=DBS.ConnectToDatabase()
 	fmt.Print(db)
 	sevices.Root(db)
