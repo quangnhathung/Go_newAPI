@@ -13,11 +13,8 @@ func main(){
 	db,_:=DBS.ConnectToDatabase()
 	fmt.Print(db)
 	sevices.Root(db)
+	//coming soon
 }
-
-
-
-
 //db.AutoMigrate(&model.Vocab{}, &model.Category{})
 	//fmt.Print(db)
 	//fmt.Print(DBS.List_category())

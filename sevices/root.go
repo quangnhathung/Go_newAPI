@@ -17,7 +17,7 @@ func Root(db *gorm.DB) {
 		if categoryID == "" {
 			var vocabs []model.Vocab
 			if err := db.Find(&vocabs).Error; err != nil {
-				return c.Status(500).JSON(fiber.Map{"error": "Không thể lấy dữ liệu"})
+				return c.Status(500).JSON(fiber.Map{"error": "Something went wrong!"})
 			}
 			return c.JSON(vocabs)
 		}
