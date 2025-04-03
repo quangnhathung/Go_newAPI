@@ -3,7 +3,7 @@ name: trigger_master_newTag
 on:
   push:
     branches:
-      - master # Bạn có thể thay đổi nhánh này nếu cần
+      - master
 
 permissions:
   contents: write
@@ -13,7 +13,7 @@ jobs:
   create-tag:
     runs-on: ubuntu-latest
     outputs:
-      new_version: ${{ steps.increase-version.outputs.NEW_VERSION }} # Đảm bảo output được thiết lập đúng
+      new_version: ${{ steps.increase-version.outputs.NEW_VERSION }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 1
 
       - name: Fetch all tags
-        run: git fetch --tags # Đảm bảo tải tất cả các tags
+        run: git fetch --tags
 
       - name: Get latest tag
         id: get-latest-tag
@@ -63,7 +63,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           RELEASE_VERSION: ${{ needs.create-tag.outputs.new_version }}
         run: |
-          MESSAGE="New Release Created: $RELEASE_VERSION"
+          MESSAGE="New tag's "Go_vocabs_be" Created: $RELEASE_VERSION%0ACheck out new version at: https://github.com/quangnhathung/Go_vocabs_be"
           curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
           -d "chat_id=$TELEGRAM_CHAT_ID" \
           -d "text=$MESSAGE"
