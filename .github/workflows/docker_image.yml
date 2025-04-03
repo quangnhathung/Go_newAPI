@@ -33,7 +33,7 @@ jobs:
         run: |
           TAG=$(date +%Y%m%d%H%M%S)
           echo "ARTIFACT_IMAGE_TAG=$TAG" >> $GITHUB_ENV
-          echo "ARTIFACT_IMAGE_PATH=${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_ARTIFACT_REPO }}/Go_vocabs_be" >> $GITHUB_ENV
+          echo "ARTIFACT_IMAGE_PATH=${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_ARTIFACT_REPO }}/go_vocabs_be" >> $GITHUB_ENV
 
       - name: Build Docker image
         run: |
